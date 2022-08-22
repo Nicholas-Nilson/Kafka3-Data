@@ -24,8 +24,8 @@ class Producer:
             data = self.emit()
             print('sent', data)
             self.producer.send('bank-customer-events', value=data)
-            sleep(1)
+            sleep(3)
 
 if __name__ == "__main__":
     p = Producer()
-    p.generateRandomXactions(n=20)
+    p.generateRandomXactions(n=40)
