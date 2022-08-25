@@ -1,12 +1,13 @@
 from time import sleep
 from json import dumps
-from kafka import KafkaProducer
+import kafka
 import time
 import random
 
+
 class Producer:
     def __init__(self):
-        self.producer = KafkaProducer(bootstrap_servers=['localhost:9092'], value_serializer=lambda m: dumps(m).encode('ascii'))
+        self.producer = kafka.KafkaProducer(bootstrap_servers=['localhost:9092'], value_serializer=lambda m: dumps(m).encode('ascii'))
 
     def emit(self, cust=55, type="dep"):
         data = {'custid' : random.randint(50,56),

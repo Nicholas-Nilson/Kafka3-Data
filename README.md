@@ -30,7 +30,7 @@ Kafka will take in transactions from various applications, and your job is to cr
 
 To help, we've provided a test producer that creates random messages and send them into Kafka.
 
-(to do this lab, you will have needed to step through both of these to get kafka and zookeepder running.
+(to do this lab, you will have needed to step through both of these to get kafka and zookeeper running.
     - [Kafka on Mac1](https://yoda.zipcode.rocks/2020/04/20/kafka-on-mac/)
     - [Kafka on Mac2](https://yoda.zipcode.rocks/2020/04/20/kafka-on-mac-2/)
 )
@@ -101,11 +101,16 @@ class Transaction(Base):
     amt = Column(Integer)
  ```
 
- Read through the producer in phase1. See where it is generating random transaction sizes, and random on whether it's a deposit or withdrawal. (and random on what customer id is used for the transaction)
+ Read through the producer in phase1. See where it is generating random 
+ transaction sizes, and random on whether it's a deposit or withdrawal. 
+ (and random on what customer id is used for the transaction)
 
 ## Phase 2
 
-Build two "analytical" consumers. One, build a consumer that everytime it starts, produces an on-going statistical summary of all the transactions seen by the system. Two, build a "limit" watcher. This is a made-up idea, but the idea is watch for accounts that exceed a certain negative number, say -5000, and print an error message when that happens.
+Build two "analytical" consumers. One, build a consumer that everytime it 
+starts, produces an on-going statistical summary of all the transactions seen 
+by the system. Two, build a "limit" watcher. This is a made-up idea, but the idea 
+is watch for accounts that exceed a certain negative number, say -5000, and print an error message when that happens.
 
 Unless you need to, don't bother to store any of the output or state in the SQL DB, just keep it in memory.
 
